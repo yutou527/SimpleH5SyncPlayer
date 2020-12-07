@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <video id='main' controls="controls" controls="controls">
+        <source src="videos/movie1.mp4" type="video/mp4" />
+    </video>
+    <video id='sub' controls="controls" controls="controls">
+        <source src="videos/movie2.mp4" type="video/mp4" />
+    </video>
+
+    <script>
+        var main = document.getElementById('main');
+        var sub = document.getElementById('sub');
+        main.addEventListener('play', function (e) { sub.play() }); main.addEventListener('pause', function (e) { sub.pause() });
+        main.addEventListener('seeking', e => {
+            sub.currentTime = main.currentTime;
+        });
+
+
+    </script>
+</body>
+
+</html>
